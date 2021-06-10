@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add the book</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmDeleteTodo()">
+        <ion-icon icon-only name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input [(ngModel)]="todo.title" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Writer</ion-label>
+      <ion-input [(ngModel)]="todo.writer" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Year</ion-label>
+      <ion-input [(ngModel)]="todo.year" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Location</ion-label>
+      <ion-input [(ngModel)]="todo.location" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-input [(ngModel)]="todo.description" type="text"></ion-input>
+    </ion-item>
+      <ion-item>  
+      <ion-label>Gived away</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="todo.isDone"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="save()">Save</ion-button>
+</ion-content>
