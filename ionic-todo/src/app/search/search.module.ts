@@ -10,6 +10,7 @@ import { SearchPageRoutingModule } from './search-routing.module';
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,

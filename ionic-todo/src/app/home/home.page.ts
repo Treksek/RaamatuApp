@@ -12,6 +12,7 @@ import { DataService } from '../services/data.service';
 export class HomePage implements OnInit {
   editButton: String = 'Edit';
   editing: Boolean = false;
+  sortButton: String = 'Sort';
 
   constructor(private navCtrl: NavController,
               private storage: Storage,
@@ -51,6 +52,7 @@ export class HomePage implements OnInit {
   deleteTodo(todo: Todo) {
     this.dataService.delete(todo);
   }
+  
 
   async confirmDeleteTodo(todo: Todo) {
     const alert = await this.alertCtrl.create({
@@ -82,4 +84,9 @@ export class HomePage implements OnInit {
     ev.detail.complete();
   }
 
+  alphabetSort(){
+    this.dataService.alphabetSort();
+
+  }
+  
 }

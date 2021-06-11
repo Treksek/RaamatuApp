@@ -7,6 +7,8 @@
       <!-- <ion-button (click)="addTodo()">
         <ion-icon name="add"></ion-icon>
       </ion-button> -->
+       
+      <ion-button  (click)="alphabetSort('title')">{{sortButton}}</ion-button>
       <ion-button (click)="toggleEdit()">{{editButton}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -29,7 +31,7 @@
           </ion-item-option>
         </ion-item-options>
 
-        <ion-item button (click)="editTodo(todo)" [ngClass]="todo.isDone ? 'done' : ''">
+        <ion-item detail button (click)="editTodo(todo)" [ngClass]="todo.isDone ? 'done' : ''">
           <ion-label>{{todo.title}}</ion-label>
           <ion-reorder *ngIf="editing"></ion-reorder>
         </ion-item>

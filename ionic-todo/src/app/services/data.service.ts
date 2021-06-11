@@ -1,11 +1,17 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit, Pipe } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { ToastController } from '@ionic/angular';
 import { Todo } from '../models/todo';
+import { Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
+
+@Pipe({
+  name: "sort"
+})
+
 export class DataService {
 
   public todos: Array<Todo> = [];
@@ -153,5 +159,11 @@ export class DataService {
           return false;
       }
   }
+  alphabetSort(){
+    const isSorted = this.todos.sort((a,b) => (a.title > b.title) ? 1 : -1);
+    return isSorted;
+
+  }
+  
 
 }

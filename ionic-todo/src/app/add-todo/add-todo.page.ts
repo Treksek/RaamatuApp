@@ -12,6 +12,7 @@ import { DataService } from '../services/data.service';
 export class AddTodoPage implements OnInit {
   private todo: Todo;
 
+  
   constructor(private route: ActivatedRoute,
     private navCtrl: NavController,
     private dataService: DataService,
@@ -62,8 +63,12 @@ export class AddTodoPage implements OnInit {
   }
 
   save() {
-    this.dataService.save(this.todo);
+    this.dataService.delete(this.todo)
+        .then(() => {
+              this.dataService.save(this.todo);
+            });
+    this.navCtrl.pop();
     this.navCtrl.navigateBack('/home');
-    
+         
   }
 }

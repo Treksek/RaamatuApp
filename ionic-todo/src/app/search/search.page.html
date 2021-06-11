@@ -1,13 +1,22 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Search</ion-title>
+    <ion-title>
+      Search
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  
-<ion-searchbar></ion-searchbar>
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
 
-
-
+  <ion-list>
+    <ion-item *ngFor="let todo of dataService.todos | filter:filterTerm">
+      <ion-item button (click)="editTodo(todo)" [ngClass]="todo.isDone ? 'done' : ''">
+        <ion-label>{{todo.title}}</ion-label>
+        
+        <ion-reorder *ngIf="editing"></ion-reorder>
+      </ion-item>
+        
+    </ion-item>
+  </ion-list>
 </ion-content>
