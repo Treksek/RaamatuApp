@@ -63,10 +63,7 @@ export class AddTodoPage implements OnInit {
   }
 
   save() {
-    this.dataService.delete(this.todo)
-        .then(() => {
-              this.dataService.save(this.todo);
-            });
+    this.dataService.save(this.todo);
     this.navCtrl.pop();
     this.navCtrl.navigateBack('/home');
          
